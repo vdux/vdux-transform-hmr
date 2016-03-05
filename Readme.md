@@ -9,6 +9,22 @@ Transform for HMR in vdux
 
     $ npm install vdux-transform-hmr
 
+## Usage
+
+Add it to your [vdux-transform](https://github.com/vdux/babel-plugin-vdux-transform) config, like this:
+
+```javascript
+{
+  plugins: [
+    ["vdux-transform", {
+      "transforms": [{
+        "transform": "vdux-transform-hmr"
+      }]
+    }]
+  ]
+}
+```
+
 ## License
 
 MIT

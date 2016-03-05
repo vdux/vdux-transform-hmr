@@ -19,8 +19,8 @@ function transform ({filename}) {
     const guid = filename + '$' + uid
 
     return map[guid]
-      : updateObject(map[guid], component)
-      ? component
+      ? updateObject(map[guid], component)
+      : component
   }
 }
 
