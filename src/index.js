@@ -3,6 +3,7 @@
  */
 
 import wnd from 'global/window'
+import morph from '@f/morph-obj'
 
 /**
  * Constants
@@ -19,26 +20,9 @@ function transform ({filename}) {
     const guid = filename + '$' + uid
 
     return (map[guid] = map[guid]
-      ? updateObject(map[guid], component)
+      ? morph(map[guid], component)
       : component)
   }
-}
-
-/**
- * Update an existing object to be identical
- * to a new one
- */
-
-function updateObject (oldObj, newObj) {
-  for (let key in oldObj) {
-    delete oldObj[key]
-  }
-
-  for (let key in newObj) {
-    oldObj[key] = newObj[key]
-  }
-
-  return oldObj
 }
 
 /**
