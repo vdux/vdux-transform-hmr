@@ -8,7 +8,7 @@ import wnd from 'global/window'
  * Constants
  */
 
-const map = {}
+const map = wnd.__vduxComponents__ = wnd.__vduxComponents__ || {}
 
 /**
  * Vdux Transform HMR
@@ -18,9 +18,9 @@ function transform ({filename}) {
   return (component, uid) => {
     const guid = filename + '$' + uid
 
-    return map[guid]
+    return (map[guid] = map[guid]
       ? updateObject(map[guid], component)
-      : component
+      : component)
   }
 }
 
@@ -30,7 +30,7 @@ function transform ({filename}) {
  */
 
 function updateObject (oldObj, newObj) {
-  for (let key in obj) {
+  for (let key in oldObj) {
     delete oldObj[key]
   }
 
