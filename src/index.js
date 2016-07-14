@@ -15,8 +15,10 @@ const map = wnd.__vduxComponents__ = wnd.__vduxComponents__ || {}
  * Vdux Transform HMR
  */
 
-function transform ({filename}) {
+function transform ({filename, components}) {
   return (component, uid) => {
+    if (components[uid].isInFunction) return component
+
     const guid = filename + '$' + uid
 
     return (map[guid] = map[guid]
